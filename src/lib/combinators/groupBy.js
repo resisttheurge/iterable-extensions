@@ -1,16 +1,11 @@
-import Iterable from 'Iterable'
+import { map } from './map'
+import { dedupe } from './dedupe'
 import { duplicates } from './duplicates'
 
 export const groupBy = (iterable, toKey) =>
-  new Iterable(function * () {
-    const keys = new Set()
-    for (let elem of iterable) {
-      const key = toKey(elem)
-      if (!keys.has(key)) {
-        keys.add(key)
-        yield [key, duplicates(key, toKey)]
-      }
-    }
-  })
+  map(
+    dedupe(map(iterable, toKey)),
+    (key) => [key, duplicates(iterable, key, toKey)]
+  )
 
 export default groupBy
