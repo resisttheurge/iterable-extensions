@@ -1,17 +1,22 @@
 import Iterable from 'Iterable'
 
+import { map } from './map'
+import { head } from './head'
+import { tail } from './tail'
+
 export const scan = (iterable, combine, init) =>
   new Iterable(function * () {
-    let rolling = init
-    let initWithNextElem = init === undefined
-    for (let elem of iterable) {
-      if (initWithNextElem) {
-        initWithNextElem = false
-        yield rolling = elem
-      } else {
-        yield rolling = combine(rolling, elem)
-      }
-    }
+    let rolling =
+      init !== undefined
+        ? combine(init, head(iterable))
+        : head(iterable)
+
+    yield rolling
+
+    yield * map(
+      tail(iterable),
+      (elem) => rolling = combine(rolling, elem)
+    )
   })
 
 export default scan
