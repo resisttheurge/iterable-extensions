@@ -1,4 +1,4 @@
-export const every = async (iterable, predicate) => {
+export const every = (iterable, predicate) => {
   for (let elem of iterable) {
     if (!predicate(elem)) {
       return false

@@ -1,6 +1,6 @@
 import { take } from './take'
 
-export const head = async (iterable) => {
+export const head = (iterable) => {
   const [result] = take(iterable, 1)
   return result
 }

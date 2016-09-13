@@ -1,9 +1,9 @@
 import { forEach } from './forEach'
 
-export const reduce = async (iterable, combine, init) => {
+export const reduce = (iterable, combine, init) => {
   let result = init
   let initWithNextElem = init === undefined
-  await forEach(iterable, (elem) => {
+  forEach(iterable, (elem) => {
     if (initWithNextElem) {
       initWithNextElem = false
       result = elem

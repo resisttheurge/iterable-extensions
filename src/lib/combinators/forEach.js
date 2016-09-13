@@ -1,4 +1,4 @@
-export const forEach = async (iterable, callback) => {
+export const forEach = (iterable, callback) => {
   for (let elem of iterable) {
     callback(elem)
   }

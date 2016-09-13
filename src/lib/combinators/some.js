@@ -1,4 +1,4 @@
-export const some = async (iterable, predicate) => {
+export const some = (iterable, predicate) => {
   for (let elem of iterable) {
     if (predicate(elem)) {
       return true
