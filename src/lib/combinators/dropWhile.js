@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-export default (iterable, predicate) =>
+export const dropWhile = (iterable, predicate) =>
   new Iterable(function * () {
     let checkPredicate = true
     for (let elem of iterable) {
@@ -10,3 +10,5 @@ export default (iterable, predicate) =>
       yield elem
     }
   })
+
+export default dropWhile

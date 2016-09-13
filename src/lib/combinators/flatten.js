@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-export default (iterable) =>
+export const flatten = (iterable) =>
   new Iterable(function * () {
     for (let elem of iterable) {
       if (Iterable.isIterable(elem)) {
@@ -10,3 +10,5 @@ export default (iterable) =>
       }
     }
   })
+
+export default flatten

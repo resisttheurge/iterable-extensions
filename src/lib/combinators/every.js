@@ -1,4 +1,4 @@
-export default async (iterable, predicate) => {
+export const every = async (iterable, predicate) => {
   for (let elem of iterable) {
     if (!predicate(elem)) {
       return false
@@ -6,3 +6,5 @@ export default async (iterable, predicate) => {
   }
   return true
 }
+
+export default every

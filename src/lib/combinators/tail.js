@@ -1,4 +1,6 @@
-import drop from './drop'
+import { drop } from './drop'
 
-export default (iterable) =>
+export const tail = (iterable) =>
   drop(iterable, 1)
+
+export default tail

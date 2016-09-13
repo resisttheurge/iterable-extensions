@@ -1,8 +1,8 @@
 import Iterable from 'Iterable'
 
-import dropWhile from './dropWhile'
+import { dropWhile } from './dropWhile'
 
-export default (iterable, count) =>
+export const drop = (iterable, count) =>
   new Iterable(function * () {
     let i = 0
     yield * dropWhile(
@@ -10,3 +10,5 @@ export default (iterable, count) =>
       () => i++ < count
     )
   })
+
+export default drop

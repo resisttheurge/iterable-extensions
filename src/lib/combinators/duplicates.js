@@ -1,8 +1,8 @@
 import Iterable from 'Iterable'
 
-import filter from './filter'
+import { filter } from './filter'
 
-export default (iterable, key, toKey = (elem) => elem) =>
+export const duplicates = (iterable, key, toKey = (elem) => elem) =>
   new Iterable(function * () {
     const checker = new Set([key])
     yield * filter(
@@ -10,3 +10,5 @@ export default (iterable, key, toKey = (elem) => elem) =>
       (elem) => checker.has(toKey(elem))
     )
   })
+
+export default duplicates

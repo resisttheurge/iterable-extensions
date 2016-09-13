@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-export default (iterable, predicate) =>
+export const takeWhile = (iterable, predicate) =>
   new Iterable(function * () {
     for (let elem of iterable) {
       if (!predicate(elem)) {
@@ -9,3 +9,5 @@ export default (iterable, predicate) =>
       yield elem
     }
   })
+
+export default takeWhile

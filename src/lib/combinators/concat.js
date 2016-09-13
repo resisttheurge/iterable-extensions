@@ -1,4 +1,6 @@
-import flatten from './flatten'
+import { flatten } from './flatten'
 
-export default (...iterables) =>
+export const concat = (...iterables) =>
   flatten(iterables)
+
+export default concat

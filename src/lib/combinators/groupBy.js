@@ -1,7 +1,7 @@
 import Iterable from 'Iterable'
-import duplicates from './duplicates'
+import { duplicates } from './duplicates'
 
-export default (iterable, toKey) =>
+export const groupBy = (iterable, toKey) =>
   new Iterable(function * () {
     const keys = new Set()
     for (let elem of iterable) {
@@ -12,3 +12,5 @@ export default (iterable, toKey) =>
       }
     }
   })
+
+export default groupBy

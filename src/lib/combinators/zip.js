@@ -1,7 +1,7 @@
 import Iterable from 'Iterable'
 import iterate from 'constructors/iterate'
 
-export default (...iterables) =>
+export const zip = (...iterables) =>
   new Iterable(function * () {
     const iterators = iterables.map(iterable => iterable[Symbol.iterator]())
     yield * iterate(
@@ -13,3 +13,5 @@ export default (...iterables) =>
       }
     )
   })
+
+export default zip

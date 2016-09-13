@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-export default (iterable, combine, init) =>
+export const scan = (iterable, combine, init) =>
   new Iterable(function * () {
     let rolling = init
     let initWithNextElem = init === undefined
@@ -13,3 +13,5 @@ export default (iterable, combine, init) =>
       }
     }
   })
+
+export default scan

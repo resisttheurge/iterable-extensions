@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-export default (iterable, project = elem => elem) =>
+export const dedupe = (iterable, project = elem => elem) =>
   new Iterable(function * () {
     let unique = new Set()
     for (let elem of iterable) {
@@ -11,3 +11,5 @@ export default (iterable, project = elem => elem) =>
       }
     }
   })
+
+export default dedupe

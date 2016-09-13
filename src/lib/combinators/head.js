@@ -1,8 +1,8 @@
-import take from './take'
-import reduce from './reduce'
+import { take } from './take'
 
-export default (iterable) =>
-  reduce(
-    take(iterable, 1),
-    (elem) => elem
-  )
+export const head = async (iterable) => {
+  const [result] = take(iterable, 1)
+  return result
+}
+
+export default head

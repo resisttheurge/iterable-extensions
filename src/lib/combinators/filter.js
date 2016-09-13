@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-export default (iterable, predicate) =>
+export const filter = (iterable, predicate) =>
   new Iterable(function * () {
     for (let elem of iterable) {
       if (predicate(iterable)) {
@@ -8,3 +8,5 @@ export default (iterable, predicate) =>
       }
     }
   })
+
+export default filter

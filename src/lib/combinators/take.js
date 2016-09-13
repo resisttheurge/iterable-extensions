@@ -1,8 +1,8 @@
 import Iterable from 'Iterable'
 
-import takeWhile from './takeWhile'
+import { takeWhile } from './takeWhile'
 
-export default (iterable, count) =>
+export const take = (iterable, count) =>
   new Iterable(function * () {
     let i = 0
     yield * takeWhile(
@@ -10,3 +10,5 @@ export default (iterable, count) =>
       () => i++ < count
     )
   })
+
+export default take
