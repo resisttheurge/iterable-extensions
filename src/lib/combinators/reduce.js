@@ -1,19 +1,19 @@
+import { head } from './head'
+import { tail } from './tail'
 import { forEach } from './forEach'
 
 export const reduce = (iterable, combine, init) => {
-  let result = init
-  let initWithNextElem = init === undefined
-  forEach(iterable, (elem) => {
-    if (initWithNextElem) {
-      initWithNextElem = false
-      result = elem
-    } else {
+  let [result, _iterable] =
+    init !== undefined
+      ? [init, iterable]
+      : [head(iterable), tail(iterable)]
+
+  forEach(
+    _iterable,
+    (elem) =>
       result = combine(result, elem)
-    }
-  })
-  if (initWithNextElem && result === undefined) {
-    throw new TypeError(`reduce must be called on a non-empty iterable when no initial value is provided`)
-  }
+  )
+
   return result
 }
 
