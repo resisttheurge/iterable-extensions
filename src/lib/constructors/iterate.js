@@ -4,10 +4,10 @@ export default
   (init, {
     next = (state) => state,
     until = (state) => false,
-    project = (elem) => elem
+    project = (state) => state
   }) =>
     new Iterable(function * () {
-      for (let elem = init; !until(elem); next(elem)) {
-        yield project(elem)
+      for (let state = init; !until(state); next(state)) {
+        yield project(state)
       }
     })
