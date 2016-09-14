@@ -1,3 +1,3 @@
-export * from './aggregates'
+export * from './aggregate'
 export * from './core'
-export * from './materializers'
+export * from './materialize'
