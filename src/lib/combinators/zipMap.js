@@ -1,11 +1,8 @@
-import { zip } from './zip'
 import { map } from './map'
 
 export const zipMap = (iterable, ...projections) =>
-  zip(
+  map(
     iterable,
-    ...projections.map(
-      (projection) =>
-        map(iterable, projection)
-    )
+    (elem) =>
+      [elem, ...projections.map(fn => fn(elem))]
   )
