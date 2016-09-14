@@ -1,6 +1,7 @@
-import { map } from './map'
+import { map } from './core/map'
+import { zipMap } from './core/zipMap'
+
 import { dedupe } from './dedupe'
-import { zipMap } from './zipMap'
 import { duplicates } from './duplicates'
 
 export const groupBy = (iterable, toKey) =>

@@ -1,6 +1,6 @@
 import Iterable from 'Iterable'
 
-import { filter } from './filter'
+import { filter } from './core/filter'
 
 export const duplicates = (iterable, key, toKey = (elem) => elem) =>
   new Iterable(function * () {
