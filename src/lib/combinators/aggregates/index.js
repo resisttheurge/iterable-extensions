@@ -1,0 +1,5 @@
+export dedupe from './dedupe'
+export every from './every'
+export forEach from './forEach'
+export groupBy from './groupBy'
+export partition from './partition'
