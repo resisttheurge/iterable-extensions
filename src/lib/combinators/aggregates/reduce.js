@@ -1,20 +1,19 @@
-import { head } from './head'
-import { tail } from './tail'
-import { forEach } from './forEach'
+import Iterable from 'Iterable'
 
-export const reduce = (iterable, combine, init) => {
-  let [result, _iterable] =
-    init !== undefined
-      ? [init, iterable]
-      : [head(iterable), tail(iterable)]
+export const reduce = (iterable, combine, init) =>
+  new Iterable(function * () {
+    const iterator = iterable[Symbol.iterator]()
 
-  forEach(
-    _iterable,
-    (elem) =>
+    let result =
+      init === undefined
+        ? iterator.next().value
+        : init
+
+    for (let elem of iterator) {
       result = combine(result, elem)
-  )
+    }
 
-  return result
-}
+    return result
+  })
 
 export default reduce

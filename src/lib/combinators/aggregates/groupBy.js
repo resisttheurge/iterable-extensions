@@ -1,13 +1,15 @@
-import { map } from './core/map'
-import { zipMap } from './core/zipMap'
-
-import { dedupe } from './dedupe'
-import { duplicates } from './duplicates'
+import { reduce } from './reduce'
 
 export const groupBy = (iterable, toKey) =>
-  zipMap(
-    dedupe(map(iterable, toKey)),
-    (key) => duplicates(iterable, key, toKey)
+  reduce(
+    iterable,
+    (map, elem) => {
+      const key = toKey(elem)
+      return map.has(key)
+        ? map.set(key, [...map.get(key), elem])
+        : map.set(key, [elem])
+    },
+    new Map()
   )
 
 export default groupBy

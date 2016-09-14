@@ -1,10 +1,13 @@
-export const some = (iterable, predicate) => {
-  for (let elem of iterable) {
-    if (predicate(elem)) {
-      return true
+import Iterable from 'Iterable'
+
+export const some = (iterable, predicate) =>
+  new Iterable(function * () {
+    for (let elem of iterable) {
+      if (predicate(elem)) {
+        return true
+      }
     }
-  }
-  return false
-}
+    return false
+  })
 
 export default some

@@ -1,12 +1,13 @@
-import Iterable from 'Iterable'
-
-import { filter } from './filter'
-import { filterNot } from './filterNot'
+import { reduce } from './reduce'
 
 export const partition = (iterable, predicate) =>
-  new Iterable(function * () {
-    yield filter(iterable, predicate)
-    yield filterNot(iterable, predicate)
-  })
+  reduce(
+    iterable,
+    ([left, right], elem) =>
+      predicate(elem)
+        ? [[...left, elem], right]
+        : [left, [...right, elem]],
+    [[], []]
+  )
 
 export default partition
