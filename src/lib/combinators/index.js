@@ -1,7 +1,6 @@
 export * from './core'
 
 export dedupe from './dedupe'
-export duplicates from './duplicates'
 export every from './every'
 export forEach from './forEach'
 export groupBy from './groupBy'

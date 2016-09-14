@@ -1,6 +1,7 @@
 export concat from './concat'
 export drop from './drop'
 export dropWhile from './dropWhile'
+export duplicates from './duplicates'
 export filter from './filter'
 export filterNot from './filterNot'
 export flatMap from './flatMap'
