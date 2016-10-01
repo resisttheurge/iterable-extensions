@@ -1,4 +1,5 @@
 export empty from './empty'
+export error from './error'
 export infinite from './infinite'
 export iterate from './iterate'
 export repeat from './infinite'
