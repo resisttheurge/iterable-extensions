@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const flatten = (iterable) =>
@@ -11,4 +13,4 @@ export const flatten = (iterable) =>
     }
   })
 
-export default flatten
+export default infix(guardIterable(flatten))

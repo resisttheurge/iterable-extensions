@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const map = (iterable, project) =>
@@ -7,4 +9,4 @@ export const map = (iterable, project) =>
     }
   })
 
-export default map
+export default infix(guardIterable(map))

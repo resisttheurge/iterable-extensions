@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 import { filter } from './filter'
@@ -11,4 +13,4 @@ export const duplicates = (iterable, key, toKey = (elem) => elem) =>
     )
   })
 
-export default duplicates
+export default infix(guardIterable(duplicates))

@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const onError =
@@ -13,4 +15,4 @@ export const onError =
       }
     })
 
-export default onError
+export default infix(guardIterable(onError))

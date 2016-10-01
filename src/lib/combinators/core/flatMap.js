@@ -1,3 +1,6 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
+
 import { map } from './map'
 import { flatten } from './flatten'
 

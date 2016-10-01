@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const every = (iterable, predicate) =>
@@ -10,4 +12,4 @@ export const every = (iterable, predicate) =>
     return true
   })
 
-export default every
+export default infix(guardIterable(every))

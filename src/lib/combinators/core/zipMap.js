@@ -6,3 +6,5 @@ export const zipMap = (iterable, ...projections) =>
     (elem) =>
       [elem, ...projections.map(fn => fn(elem))]
   )
+
+export default zipMap

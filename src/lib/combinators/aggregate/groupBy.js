@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import { reduce } from './reduce'
 
 export const groupBy = (iterable, toKey) =>
@@ -12,4 +14,4 @@ export const groupBy = (iterable, toKey) =>
     new Map()
   )
 
-export default groupBy
+export default infix(guardIterable(groupBy))

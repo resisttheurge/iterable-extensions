@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const onComplete =
@@ -6,4 +8,4 @@ export const onComplete =
     f(yield * iterable, iterable)
   })
 
-export default onComplete
+export default infix(guardIterable(onComplete))

@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 import iterate from 'constructors/iterate'
 
@@ -14,4 +16,4 @@ export const zip = (...iterables) =>
     )
   })
 
-export default zip
+export default infix(guardIterable(zip))

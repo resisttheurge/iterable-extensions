@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 import { map } from './map'
@@ -19,4 +21,4 @@ export const scan = (iterable, combine, init) =>
     )
   })
 
-export default scan
+export default infix(guardIterable(scan))

@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const reduce = (iterable, combine, init) =>
@@ -16,4 +18,4 @@ export const reduce = (iterable, combine, init) =>
     return result
   })
 
-export default reduce
+export default infix(guardIterable(reduce))

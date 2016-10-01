@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const onStart =
@@ -14,4 +16,4 @@ export const onStart =
       }
     })
 
-export default onStart
+export default infix(guardIterable(onStart))

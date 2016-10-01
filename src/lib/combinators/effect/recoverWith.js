@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 import error from 'constructors/error'
 
@@ -14,4 +16,4 @@ export const recoverWith =
       }
     })
 
-export default recoverWith
+export default infix(guardIterable(recoverWith))

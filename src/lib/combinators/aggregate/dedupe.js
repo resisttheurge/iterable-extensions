@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import { reduce } from './reduce'
 
 export const dedupe = (iterable) =>
@@ -8,4 +10,4 @@ export const dedupe = (iterable) =>
     new Set()
   )
 
-export default dedupe
+export default infix(guardIterable(dedupe))

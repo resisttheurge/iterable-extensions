@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const dropWhile = (iterable, predicate) =>
@@ -11,4 +13,4 @@ export const dropWhile = (iterable, predicate) =>
     }
   })
 
-export default dropWhile
+export default infix(guardIterable(dropWhile))

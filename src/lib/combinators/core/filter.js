@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const filter = (iterable, predicate) =>
@@ -9,4 +11,4 @@ export const filter = (iterable, predicate) =>
     }
   })
 
-export default filter
+export default infix(guardIterable(filter))

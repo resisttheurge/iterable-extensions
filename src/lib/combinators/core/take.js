@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 import { takeWhile } from './takeWhile'
@@ -11,4 +13,4 @@ export const take = (iterable, count) =>
     )
   })
 
-export default take
+export default infix(guardIterable(take))

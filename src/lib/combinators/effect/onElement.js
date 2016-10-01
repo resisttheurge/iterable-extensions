@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 
 export const onElement =
@@ -9,4 +11,4 @@ export const onElement =
       }
     })
 
-export default onElement
+export default infix(guardIterable(onElement))

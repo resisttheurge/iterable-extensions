@@ -1,3 +1,5 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import { reduce } from './reduce'
 
 export const partition = (iterable, predicate) =>
@@ -10,4 +12,4 @@ export const partition = (iterable, predicate) =>
     [[], []]
   )
 
-export default partition
+export default infix(guardIterable(partition))
