@@ -1,7 +1,9 @@
+import guardIterable from 'checks/guardIterable'
+import infix from 'bind-infix-proxy'
 import Iterable from 'Iterable'
 import iterate from 'constructors/iterate'
 
-export default (...iterables) =>
+export const zip = (...iterables) =>
   new Iterable(function * () {
     const iterators = iterables.map(iterable => iterable[Symbol.iterator]())
     yield * iterate(
@@ -13,3 +15,5 @@ export default (...iterables) =>
       }
     )
   })
+
+export default infix(guardIterable(zip))
